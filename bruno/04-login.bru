@@ -1,0 +1,28 @@
+meta {
+  name: 04 - Login (200 + token JWT)
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://3.148.185.31:8085/api/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "{{email}}",
+    "password": "secreto123"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setVar("token", res.body.token);
+  }
+}

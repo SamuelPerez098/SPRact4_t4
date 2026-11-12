@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "SPRact4_t4 - API JWT",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

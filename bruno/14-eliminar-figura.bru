@@ -1,0 +1,19 @@
+meta {
+  name: 14 - CRUD Delete: eliminar figura (204)
+  type: http
+  seq: 14
+}
+
+delete {
+  url: {{baseUrl}}/api/figuras/{{figuraId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 204
+}

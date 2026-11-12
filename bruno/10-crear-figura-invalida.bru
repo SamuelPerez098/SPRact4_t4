@@ -1,0 +1,26 @@
+meta {
+  name: 10 - Crear figura con datos invalidos (400)
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/figuras
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "personaje": "",
+    "precio": -5
+  }
+}
+
+assert {
+  res.status: eq 400
+}

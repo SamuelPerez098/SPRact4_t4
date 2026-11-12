@@ -1,0 +1,19 @@
+meta {
+  name: 07 - Endpoint protegido con token invalido (401)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/api/figuras
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer token.falso.123
+}
+
+assert {
+  res.status: eq 401
+}

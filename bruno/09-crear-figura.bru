@@ -1,0 +1,33 @@
+meta {
+  name: 09 - CRUD Create: crear figura (201)
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://3.148.185.31:8085/api/figuras
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "personaje": "Figura Bruno",
+    "precio": 999.99,
+    "animeId": {{animeId}}
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setVar("figuraId", res.body.id);
+  }
+}

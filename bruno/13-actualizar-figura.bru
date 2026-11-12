@@ -1,0 +1,27 @@
+meta {
+  name: 13 - CRUD Update: actualizar figura (200)
+  type: http
+  seq: 13
+}
+
+put {
+  url: {{baseUrl}}/api/figuras/{{figuraId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "personaje": "Figura Bruno (editada)",
+    "precio": 1499.0,
+    "animeId": {{animeId}}
+  }
+}
+
+assert {
+  res.status: eq 200
+}

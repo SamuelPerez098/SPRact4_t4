@@ -1,0 +1,25 @@
+meta {
+  name: 11 - CRUD Read: listar figuras paginado (200)
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/api/figuras?page=0&size=5&sort=precio,desc
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 0
+  size: 5
+  sort: precio,desc
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 200
+}

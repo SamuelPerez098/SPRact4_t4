@@ -1,0 +1,27 @@
+meta {
+  name: 01 - Registro de usuario (201)
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://3.148.185.31:8085/api/auth/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Usuario Bruno",
+    "email": "{{email}}",
+    "password": "secreto123"
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:pre-request {
+  bru.setVar("email", "bruno" + Date.now() + "@correo.com");
+}
