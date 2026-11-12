@@ -1,0 +1,19 @@
+target/
+.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+### Secretos: nunca subir ###
+*.env
+!*.env.example
+.env
+application-local.properties
+
+### IDEs ###
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+.sts4-cache/

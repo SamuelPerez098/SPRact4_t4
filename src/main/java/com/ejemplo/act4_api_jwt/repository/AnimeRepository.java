@@ -1,0 +1,7 @@
+package com.ejemplo.act4_api_jwt.repository;
+
+import com.ejemplo.act4_api_jwt.entity.Anime;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AnimeRepository extends JpaRepository<Anime, Long> {
+}
